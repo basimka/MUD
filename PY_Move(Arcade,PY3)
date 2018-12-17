@@ -2,6 +2,7 @@
 
 # здесь подключаются модули
 import pygame
+
 from pygame.locals import *
 
 
@@ -25,25 +26,47 @@ pygame.display.update()
 # координаты и радиус круга
 x = W // 2
 y = H // 2
-r = 50
+r = 20
+
+### Рисуем сетку игрового поля
+pygame.draw.rect(sc, BLUE, (x, y, 50, 50))
 
 while 1:
     sc.fill(WHITE)
 
-    pygame.draw.circle(sc, BLUE, (x, y), r)
 
+
+
+
+
+
+    pygame.draw.rect(sc, BLUE,(x,y,50,50))
     pygame.display.update()
 
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
             exit()
+
         elif i.type == pygame.KEYDOWN:
+
             if i.key == pygame.K_LEFT:
-                x -= 3
+                x -= 50
             elif i.key == pygame.K_RIGHT:
-                x += 3
+                x += 50
             elif i.key == pygame.K_UP:
-                y -=3
+                y -= 50
             elif i.key == pygame.K_DOWN:
-                y += 3
+                y += 50
+        elif x < 0:
+            x = x + 50
+        elif y < 0:
+            y= y + 50
+        elif x > 650:
+            x = x - 50
+        elif y > 250:
+            y = y - 50
+
+
+
+
     clock.tick(FPS)
