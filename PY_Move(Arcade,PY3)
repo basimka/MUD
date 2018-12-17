@@ -2,7 +2,7 @@
 
 # здесь подключаются модули
 import pygame
-
+import random
 from pygame.locals import *
 
 
@@ -23,13 +23,28 @@ clock = pygame.time.Clock()
 # если надо до цикла отобразить объекты на экране
 pygame.display.update()
 
-# координаты и радиус круга
+#№№№ Параметры персонажа
+#координаты
+
 x = W // 2
 y = H // 2
-r = 20
 
-### Рисуем сетку игрового поля
-pygame.draw.rect(sc, BLUE, (x, y, 50, 50))
+#параметры
+pheal = 100
+pmana = 100
+parmor = 10
+patack = 10
+
+
+
+
+surf = pygame.Surface((200, 150))
+
+surf.fill((255, 255, 255))
+
+sc.blit(surf, (50, 25))
+
+
 
 while 1:
     sc.fill(WHITE)
@@ -38,9 +53,31 @@ while 1:
 
 
 
+    ### Рисуем сетку игрового поля
+    pygame.draw.line(sc, BLUE, (0, 51), (W, 51), 1)
+    pygame.draw.line(sc, BLUE, (0, 101), (W, 101), 1)
+    pygame.draw.line(sc, BLUE, (0, 151), (W, 151), 1)
+    pygame.draw.line(sc, BLUE, (0, 201), (W, 201), 1)
+    pygame.draw.line(sc, BLUE, (0, 251), (W, 251), 1)
+    pygame.draw.line(sc, BLUE, (51, 0), (51,H), 1)
+    pygame.draw.line(sc, BLUE, (101, 0), (101,H), 1)
+    pygame.draw.line(sc, BLUE, (151, 0), (151,H), 1)
+    pygame.draw.line(sc, BLUE, (201, 0), (201,H), 1)
+    pygame.draw.line(sc, BLUE, (251, 0), (251,H), 1)
+    pygame.draw.line(sc, BLUE, (301, 0), (301,H), 1)
+    pygame.draw.line(sc, BLUE, (351, 0), (351,H), 1)
+    pygame.draw.line(sc, BLUE, (401, 0), (401,H), 1)
+    pygame.draw.line(sc, BLUE, (451, 0), (451,H), 1)
+    pygame.draw.line(sc, BLUE, (501, 0), (501,H), 1)
+    pygame.draw.line(sc, BLUE, (551, 0), (551, H), 1)
+    pygame.draw.line(sc, BLUE, (601, 0), (601, H), 1)
+    pygame.draw.line(sc, BLUE, (651, 0), (651, H), 1)
+
 
 
     pygame.draw.rect(sc, BLUE,(x,y,50,50))
+
+
     pygame.display.update()
 
     for i in pygame.event.get():
