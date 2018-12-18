@@ -17,17 +17,30 @@ BLUE = (0, 70, 225)
 
 # здесь происходит инициация, создание объектов и др.
 pygame.init()
-sc = pygame.display.set_mode((W, H))
-clock = pygame.time.Clock()
 
-# если надо до цикла отобразить объекты на экране
-pygame.display.update()
+sc = pygame.display.set_mode((W, H))
+
+
 
 #№№№ Параметры персонажа
 #координаты
 
 x = W // 2
 y = H // 2
+
+
+clock = pygame.time.Clock()
+
+
+font = pygame.font.Font(None, 72)
+
+
+# если надо до цикла отобразить объекты на экране
+
+
+pygame.display.update()
+
+
 
 #параметры
 pheal = 100
@@ -38,11 +51,15 @@ patack = 10
 
 
 
+
+
+
+
 surf = pygame.Surface((200, 150))
 
-surf.fill((255, 255, 255))
 
-sc.blit(surf, (50, 25))
+
+
 
 
 
@@ -77,13 +94,21 @@ while 1:
 
     pygame.draw.rect(sc, BLUE,(x,y,50,50))
 
+    text = font.render(("x = " + str(x)), 1, (0, 100, 0))
+    text2 = font.render(("y = " + str(y)), 1, (0, 100, 0))
+    sc.blit(text, (400, 15))
+    sc.blit(text2, (400, 55))
+
 
     pygame.display.update()
+
 
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
             exit()
 
+
+        #pressed = pygame.key.get_pressed()
         elif i.type == pygame.KEYDOWN:
 
             if i.key == pygame.K_LEFT:
@@ -103,7 +128,10 @@ while 1:
         elif y > 250:
             y = y - 50
 
-
+        text = font.render(("x = " + str(x)), 1, (0, 100, 0))
+        text2 = font.render(("y = " + str(y)), 1, (0, 100, 0))
+        sc.blit(text, (400, 15))
+        sc.blit(text2, (400, 55))
 
 
     clock.tick(FPS)
